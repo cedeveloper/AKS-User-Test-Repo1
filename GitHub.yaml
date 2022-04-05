@@ -1,0 +1,122 @@
+ConnectorMetadata:
+  Key: uipath-microsoft-github
+  Version: 1.0.0
+  HasDiscoveryAPI: false
+  ParametersToExclude: 
+  - Authorization
+
+GenerateAll: true
+  
+Application: GitHub
+ApplicationDisplayName: GitHub
+VendorDisplayName: Microsoft
+PackageVersion: 3.0.0
+
+LicenseUrl: https://www.uipath.com/hubfs/legalspot/UiPath_MSSA.pdf
+HelpUrl: https://docs.uipath.com/activities/docs/uipath-microsoft-github-about
+IconUrl: https://download.uipath.com/UI_icon.png
+Authors: UiPath 
+Title: GitHub
+Description: THIS VERSION REQUIRES THE AUTOMATION CLOUD INTEGRATION SERVICE. UiPath Integration Service based automation activities for GitHub. These activities allow you to execute create, retrieve, update, delete and invoke operations on GitHub objects.
+Tags: github repo pull general branch microsoft integration service connector catalog
+
+ActivityCategories:
+- Name: Object
+  DisplayName: Object
+- Name: Files
+  DisplayName: Files  
+ 
+Activities:
+## Begin CRUD/L Activities
+
+- Name: GetRecord
+  DisplayName: Get Record
+  Description: Retrieves a record in GitHub.
+  CategoryName: Object
+  Type: GetRecordBase
+  ConfiguredBusinessEntity:
+  Designer: GridDesigner
+  Settings:
+    ShowAllFields: true
+    EnableSampleValues: false
+    
+- Name: InsertRecord
+  DisplayName: Insert Record
+  Description: Inserts a record in GitHub.
+  CategoryName: Object
+  Type: InsertRecordBase
+  ConfiguredBusinessEntity:
+  Designer: GridDesigner
+  Settings:
+    ShowAllFields: true
+    EnableSampleValues: false
+    EnableSampleValuesTest: true
+    
+- Name: UpdateRecord
+  DisplayName: Update Record
+  Description: Updates a record in GitHub.
+  CategoryName: Object
+  Type: UpdateRecordBase
+  ConfiguredBusinessEntity:
+  Designer: GridDesigner
+  Settings:
+    ShowAllFields: true
+    EnableSampleValues: false
+    EnableSampleValuesTest: true  
+
+- Name: ListRecords
+  DisplayName: List Records
+  Description: Lists a page of records in GitHub.
+  CategoryName: Object
+  Type: ListRecordsBase
+  ConfiguredBusinessEntity:
+  Designer: FormDesigner
+  
+- Name: ListAllRecords
+  DisplayName: List All Records
+  Description: Lists all the records of an object in GitHub.
+  CategoryName: Object
+  Type: ListAllRecordsBase
+  ConfiguredBusinessEntity:
+  Designer: FormDesigner       
+  
+## End CRUD/L Activities
+
+## Start Invoke
+
+- Name: InvokeMethod
+  DisplayName: Invoke Operation
+  Description: Invokes a GitHub operation.
+  CategoryName: 
+  Type: MethodBase
+  ConfiguredBusinessEntity:
+  Designer: GridDesigner
+
+## End Invoke
+
+## Start Files
+
+- Name: UploadFile
+  DisplayName: Upload File
+  Description: Uploads a file to GitHub.
+  CategoryName: Files
+  Type: UploadFileBase
+  ConfiguredBusinessEntity: upload_file
+  Designer: UploadFileDesigner
+  Settings:
+    ShowAllFields: false
+    ShowConfigureButton: false
+    Properties:
+    - FieldName: repo
+      DisplayName: Repo name
+      Description: The name of the repository.
+    - FieldName: path
+      DisplayName: Path
+      Description: The file or directory path.  
+    - FieldName: BodyFormData      
+      DisplayName: Request Body
+      Description: JSON containing message, content and sha (in case of file update) in string format.        
+    - FieldName: Response
+      DisplayName: Response
+      Description: The output of the file upload.
+## End Files
